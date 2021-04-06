@@ -71,6 +71,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-python-cprint" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="./2021/04/06/python-cprint/" class="article-date">
+  <time class="dt-published" datetime="2021-04-06T03:26:14.776Z" itemprop="datePublished">2021-04-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="./2021/04/06/python-cprint/">Python使用cprint模块打印带颜色字符</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在终端打印带有颜色的字符串</p>
+<p>安装</p>
+<pre><code>pip install cprint
+</code></pre>
+<p>使用示例：</p>
+<pre><code>from cprint import *
+
+cprint(str) # WHITE
+cprint.ok(str) # BLUE
+cprint.info(str) # GREEN
+cprint.warn(str) # YELLOW
+cprint.err(str, interrupt=False) # BROWN
+cprint.fatal(str, interrupt=False) # RED
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/04/06/python-cprint/" data-id="ckn5ngini0002m0b92stffltk" data-title="Python使用cprint模块打印带颜色字符" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-pc-upgrade" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="./2021/04/05/pc-upgrade/" class="article-date">
@@ -94,14 +146,17 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>一</p>
-<p>电脑升级看起来真的是很简单一件事情，可是在等待配件配送的过程中，发现自己可以在几十分钟内装完电脑，却无法让配件及时送达，将电脑组完成。我住在浙江金华，周六下午4点左右，我在淘宝上下单买了CPU（Intel Core I5 116000KF），主板（Asrock Z490M Pro 4），内存（TeamGroup 16G DDR4 3600 * 2），结果CPU，主板是从上海发来的，店家很快发货，第二天上午就能到。而内存条虽然店家发货速度也很快，可是发货地点是在山西，路途遥远，过来两天才到。这块主板只能使用DDR4内存，原来DDR3的内存无法安装，就这样原计划在周末装机，却等不到配件。我在挑选配件上花了许多时间，主要考虑的是性价比的原因，加上后来又买CPU风扇和电源总共4001元，我总结是在CPU选择上我应该先考虑性能，然后考虑价格。而在下单的时候我只考虑价格，而没有考虑性能问题，也就是发货的问题，应尽量选择在上海的商户，比如内存可以考虑其他品牌，例如还有金士顿等很多品牌。</p>
+<p>电脑升级看起来真的是很简单一件事情，可是在等待配件配送的过程中，发现自己可以在几十分钟内装完电脑，却无法让配件及时送达，将电脑组完成。我住在浙江金华，周六下午4点左右，我在淘宝上下单买了CPU（Intel Core I5 116000KF），主板（Asrock Z490M Pro 4），内存（TeamGroup 16G DDR4 3600 * 2），结果CPU，主板是从上海发来的，店家很快发货，第二天上午就能到。而内存条虽然店家发货速度也很快，可是发货地点是在山西，路途遥远，过来两天才到。这块主板只能使用DDR4内存，原来DDR3的内存无法安装，就这样原计划在周末装机，却等不到配件。我在挑选配件上花了许多时间，主要考虑的是性价比，加上后来又买了CPU风扇和电源总共4001元，我总结是在CPU选择上我应该先考虑性能，然后考虑价格。而在下单的时候我只考虑价格，而没有考虑性能问题，也就是发货的问题，应尽量选择在上海的商户，比如内存可以考虑其他品牌，例如还有金士顿等很多品牌。</p>
 <p>二</p>
-<p>内存总算到了，在匆忙组装完电脑，接上电源和线缆，按下启动键，发现显示器没有视频信号。我顿时感到一阵心慌，是我组装有问题吗？我害怕自己不当的安装导致可怕的后果，例如，烧坏主板，或者CPU。因为我能完好的安装完原来的电脑，这样的担心恐怕是多余的。那么还是主板和CPU不兼容呢？我选择的是11代CPU，而主板是针对10代CPU的，我当时的依据是，10代和11代CPU都是LGA 1200接口，顺便搜索了下，Z490系列主板可以支持11代CPU，不过或许这样的结论下得太早，由于装机时间已是晚上9点左右，只能等待明天联系主板厂商，得知是否是主板和CPU不兼容的问题。</p>
+<p>内存总算到了，在匆忙组装完电脑，接上电源和线缆，按下启动键，发现显示器没有视频信号。我顿时感到一阵心慌，是我组装有问题吗？我害怕自己不当的安装导致可怕的后果，例如，烧坏主板，或者CPU。因为我能完好的安装完原来的电脑，这样的担心恐怕是多余的。那么还是主板和CPU不兼容呢？我选择的是11代CPU，而主板是针对10代CPU的，我当时的依据是，10代和11代CPU都是LGA 1200接口，顺便搜索了下，Z490系列主板可以支持11代CPU，不过或许这样的结论下得太早，而我选择Z490M是因为比Z490便宜。由于装机时间已是晚上9点左右，只能等待明天联系主板厂商，得知是否是主板和CPU不兼容的问题。</p>
+<p>三</p>
+<p>中午1点左右，我通过华擎的官网终于电话联系了他们的客服人员，得知我这款主板不支持11代CPU，而且只有少数几款支持11代CPU。我有点无奈的挂了电话，开始和商家客户联系退货，这过个过程可谓是耗费心力。以下是我们淘宝旺旺的聊天记录：</p>
+<p>我说：这款主板不支持11代CPU，可以退货吗？<br>她说：安装过吗？<br>我说：我安装过。<br>她说：如果不是故障问题，不可以退货。<br>我说：我说这是你们产品的问题。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/05/pc-upgrade/" data-id="ckn5dgz3h0001jxb91qzofos0" data-title="电脑升级记" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/05/pc-upgrade/" data-id="ckn5nging0001m0b9cg1d8pea" data-title="电脑升级记" class="article-share-link">Share</a>
       
       
       
@@ -152,7 +207,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/05/hello-world/" data-id="ckn5dgz3c0000jxb94xe84sg3" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/05/hello-world/" data-id="ckn5nginb0000m0b98k5c5z0v" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -193,6 +248,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="./2021/04/06/python-cprint/">Python使用cprint模块打印带颜色字符</a>
+          </li>
         
           <li>
             <a href="./2021/04/05/pc-upgrade/">电脑升级记</a>
