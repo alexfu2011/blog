@@ -102,7 +102,7 @@
 
 <p>以上代码使用useReducer生成相关数据和方法。从以上代码来看，可以通过函数返回数据，而且可以根据不同的请求返回不同数据。这个功能得益于dispatch和reducer的巧妙结合。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">&quot;redux&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Provider, useSelector, useDispatch &#125; <span class="keyword">from</span> <span class="string">&quot;react-redux&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> initialState = &#123; <span class="attr">num</span>: <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reducer = <span class="function">(<span class="params">state, action</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;decrement&quot;</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123; ...state, <span class="attr">num</span>: state.num - <span class="number">1</span> &#125;;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;increment&quot;</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123; ...state, <span class="attr">num</span>: state.num + <span class="number">1</span> &#125;;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">    </span><br><span class="line">      <span class="keyword">return</span> state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = createStore(reducer, initialState);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ComponentUseReactRedux = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h2&gt;ComponentUseReactRedux&lt;/h2&gt;</span><br><span class="line">      &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">        &lt;ChildComponentUseReactRedux /&gt;</span><br><span class="line">      &lt;/Provider&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ChildComponentUseReactRedux = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> num = useSelector(<span class="function"><span class="params">state</span> =&gt;</span> state.num);</span><br><span class="line">  <span class="keyword">const</span> dispatch = useDispatch();</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h3&gt;Using useSelector, useDispatch&lt;/h3&gt;</span><br><span class="line">      <span class="built_in">Number</span>: &#123;num&#125;</span><br><span class="line">      &lt;button onClick=&#123;<span class="function">() =&gt;</span> dispatch(&#123; <span class="attr">type</span>: <span class="string">&quot;increment&quot;</span> &#125;)&#125;&gt;+&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;<span class="function">() =&gt;</span> dispatch(&#123; <span class="attr">type</span>: <span class="string">&quot;decrement&quot;</span> &#125;)&#125;&gt;-&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> ComponentUseReactRedux;</span><br></pre></td></tr></table></figure>
-<p>Redux使用createStore，创建一个store对象，它是Redux的核心，通过Provider传递给其他组件，再通过useSelector获取数据和通过useDispatch发送数据。</p>
+<p>Redux使用createStore，创建一个store对象，它是Redux的核心，通过Provider传递给其他组件，再通过useSelector获取数据和useDispatch发送数据。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/vitaviva/article/details/104508139">https://blog.csdn.net/vitaviva/article/details/104508139</a></li>
 </ul>
@@ -110,7 +110,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/05/04/hello-react-redux/" data-id="cko9ledls0001cfb94j9rbd0t" data-title="Hello React Redux" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/05/04/hello-react-redux/" data-id="cko9lfe4v0001ecb99e506zrb" data-title="Hello React Redux" class="article-share-link">Share</a>
       
       
       
@@ -150,7 +150,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/21/m1-imac/" data-id="cko9ledlu0002cfb94j6j6edy" data-title="Hello iMac" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/21/m1-imac/" data-id="cko9lfe4w0002ecb99tip38lb" data-title="Hello iMac" class="article-share-link">Share</a>
       
       
       
@@ -190,7 +190,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/19/ys/" data-id="cko9ledlx0006cfb996vc51jg" data-title="原神" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/19/ys/" data-id="cko9lfe4z0006ecb9ddve68sy" data-title="原神" class="article-share-link">Share</a>
       
       
       
@@ -233,7 +233,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/19/rtx-3060/" data-id="cko9ledlv0004cfb99lxz09at" data-title="RTX 3060性价比高？" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/19/rtx-3060/" data-id="cko9lfe4y0004ecb9cw5ce3nd" data-title="RTX 3060性价比高？" class="article-share-link">Share</a>
       
       
       
@@ -278,7 +278,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/14/hello-blog/" data-id="cko9ledlo0000cfb9ax39emg1" data-title="Hello Blog" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/14/hello-blog/" data-id="cko9lfe4q0000ecb92xs0hjqc" data-title="Hello Blog" class="article-share-link">Share</a>
       
       
       
@@ -322,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/12/tv-box/" data-id="cko9ledlw0005cfb96wxx59ke" data-title="电视盒子便宜没好货？" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/12/tv-box/" data-id="cko9lfe4z0005ecb916qyes5v" data-title="电视盒子便宜没好货？" class="article-share-link">Share</a>
       
       
       
@@ -380,7 +380,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/05/pc-upgrade/" data-id="cko9ledlv0003cfb92zbn7t83" data-title="电脑升级记" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/05/pc-upgrade/" data-id="cko9lfe4x0003ecb9anaiddia" data-title="电脑升级记" class="article-share-link">Share</a>
       
       
       
