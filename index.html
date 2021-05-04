@@ -71,6 +71,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-hello-react-redux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2021/05/04/hello-react-redux/" class="article-date">
+  <time class="dt-published" datetime="2021-05-04T04:26:16.678Z" itemprop="datePublished">2021-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/2021/05/04/hello-react-redux/">Hello React Redux</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>React和Redux非常相像，我们先来看React的一段代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ComponentUseState = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [num, setNum] = useState(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h2&gt;Using useState&lt;/h2&gt;</span><br><span class="line">      <span class="built_in">Number</span>: &#123;num&#125;</span><br><span class="line">      &lt;button onClick=&#123;<span class="function">() =&gt;</span> setNum(num + <span class="number">1</span>)&#125;&gt;+&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;<span class="function">() =&gt;</span> setNum(num - <span class="number">1</span>)&#125;&gt;-&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> ComponentUseState;</span><br></pre></td></tr></table></figure>
+
+<p>React使用useState生成相关数据和方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useReducer &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> initialState = &#123;<span class="attr">num</span>: <span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reducer = <span class="function">(<span class="params">state, action</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">switch</span>(action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;decrement&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123;...state, <span class="attr">num</span>: state.num - <span class="number">1</span>&#125;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;increment&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123;...state, <span class="attr">num</span>: state.num + <span class="number">1</span>&#125;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ComponentUseReducer = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [state, dispatch] = useReducer(reducer, initialState)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> &#123; num &#125; = state</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h2&gt;Using useReducer&lt;/h2&gt;</span><br><span class="line">      <span class="built_in">Number</span>: &#123;num&#125;</span><br><span class="line">      &lt;button onClick=&#123;<span class="function">() =&gt;</span> dispatch(&#123;<span class="attr">type</span>: <span class="string">&#x27;increment&#x27;</span>&#125;)&#125;&gt;+&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;<span class="function">() =&gt;</span> dispatch(&#123;<span class="attr">type</span>: <span class="string">&#x27;decrement&#x27;</span>&#125;)&#125;&gt;-&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>Redux使用useReducer生成相关数据和方法。从以上代码来看Redux可以通过函数返回数据，而且可以根据不提的请求返回不同数据。这个功能得益于dispatch和reducer的巧妙结合。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/vitaviva/article/details/104508139">https://blog.csdn.net/vitaviva/article/details/104508139</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/04/hello-react-redux/" data-id="cko9jwfbr00010jb94s98662j" data-title="Hello React Redux" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-m1-imac" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2021/04/21/m1-imac/" class="article-date">
@@ -99,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/21/m1-imac/" data-id="cknqtfzon0001d8b9gm2k19ma" data-title="Hello iMac" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/21/m1-imac/" data-id="cko9jwfbt00020jb97v1zge44" data-title="Hello iMac" class="article-share-link">Share</a>
       
       
       
@@ -139,7 +187,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/19/ys/" data-id="cknqtfzos0005d8b9hgak86uy" data-title="原神" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/19/ys/" data-id="cko9jwfbw00060jb902atdt4c" data-title="原神" class="article-share-link">Share</a>
       
       
       
@@ -182,7 +230,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/19/rtx-3060/" data-id="cknqtfzop0003d8b934gzg62a" data-title="RTX 3060性价比高？" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/19/rtx-3060/" data-id="cko9jwfbv00050jb92q5o2sqg" data-title="RTX 3060性价比高？" class="article-share-link">Share</a>
       
       
       
@@ -227,7 +275,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/14/hello-blog/" data-id="cknqtfzoi0000d8b95rrcacjf" data-title="Hello Blog" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/14/hello-blog/" data-id="cko9jwfbg00000jb9cvv9f2lm" data-title="Hello Blog" class="article-share-link">Share</a>
       
       
       
@@ -271,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/12/tv-box/" data-id="cknqtfzop0004d8b9hnmy6o0r" data-title="电视盒子便宜没好货？" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/12/tv-box/" data-id="cko9jwfbu00040jb9a2xmdozv" data-title="电视盒子便宜没好货？" class="article-share-link">Share</a>
       
       
       
@@ -329,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/05/pc-upgrade/" data-id="cknqtfzoo0002d8b9ba5hht4p" data-title="电脑升级记" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/05/pc-upgrade/" data-id="cko9jwfbt00030jb9fwoq2oug" data-title="电脑升级记" class="article-share-link">Share</a>
       
       
       
@@ -359,7 +407,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/04/">April 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/04/">April 2021</a></li></ul>
     </div>
   </div>
 
@@ -370,6 +418,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2021/05/04/hello-react-redux/">Hello React Redux</a>
+          </li>
         
           <li>
             <a href="/blog/2021/04/21/m1-imac/">Hello iMac</a>
@@ -385,10 +437,6 @@
         
           <li>
             <a href="/blog/2021/04/14/hello-blog/">Hello Blog</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2021/04/12/tv-box/">电视盒子便宜没好货？</a>
           </li>
         
       </ul>
