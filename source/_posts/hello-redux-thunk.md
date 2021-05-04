@@ -15,11 +15,11 @@ const updateData = value => dispatch => {
 这个功能确实扩展了dispatch，我一开始看到这个函数的时候有点疑惑，不过当你掌握了Javascript，就可以当它像下面这段代码执行。
 
 ```js
-function sleep (time) {
+function sleep(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
 
-let put = function(value) {
+const put = function(value) {
     if (typeof value === "function") {
         value(put, arguments);
     } else {
@@ -27,7 +27,7 @@ let put = function(value) {
     }
 };
 
-let asyncFunc = value => async put => {
+const asyncFunc = value => async put => {
   await sleep(3000);
   put(value);
 };
