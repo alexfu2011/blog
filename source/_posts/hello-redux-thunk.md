@@ -16,7 +16,7 @@ const updateData = value => dispatch => {
 
 ```js
 function sleep(time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
+    return new Promise((resolve) => setTimeout(resolve, time));
 }
 
 const put = function(value) {
@@ -28,8 +28,8 @@ const put = function(value) {
 };
 
 const asyncFunc = value => async put => {
-  await sleep(3000);
-  put(value);
+    await sleep(3000);
+    put(value);
 };
 
 put(asyncFunc("hello"));
