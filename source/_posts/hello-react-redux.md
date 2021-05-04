@@ -107,7 +107,7 @@ const ChildComponentUseReactRedux = () => {
 export default ComponentUseReactRedux;
 ```
 
-Redux使用createStore，创建一个store对象，它是Redux的核心，通过Provider传递给其他组件，再通过useSelector获取数据和useDispatch发送数据。
+Redux使用createStore创建一个store对象，它是Redux的核心，通过Provider传递给其他组件，通过useSelector获取数据和useDispatch发送数据。
 
 ## 参考
 * https://blog.csdn.net/vitaviva/article/details/104508139
