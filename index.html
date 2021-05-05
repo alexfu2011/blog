@@ -94,14 +94,14 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>接上文，如果想让dispatch传递一个函数的话，通常是一个异步函数，就需要使用redux-thunk。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> updateData = <span class="function"><span class="params">value</span> =&gt;</span> <span class="function"><span class="params">dispatch</span> =&gt;</span> &#123;</span><br><span class="line">  dispatch(&#123;</span><br><span class="line">    type: <span class="string">&#x27;UPDATE_DATA&#x27;</span>,</span><br><span class="line">    value,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> updateData = <span class="function"><span class="params">value</span> =&gt;</span> <span class="function"><span class="params">dispatch</span> =&gt;</span> &#123;</span><br><span class="line">    dispatch(&#123;</span><br><span class="line">        type: <span class="string">&#x27;UPDATE_DATA&#x27;</span>,</span><br><span class="line">        value,</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>这个功能确实扩展了dispatch，我一开始看到这个函数的时候有点疑惑，不过当你掌握了Javascript，就可以当它像下面这段代码执行。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params">time</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> resolve(<span class="string">&quot;over&quot;</span>), time));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> put = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">&quot;function&quot;</span>) &#123;</span><br><span class="line">        value(put, <span class="built_in">arguments</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> asyncFunc = <span class="function"><span class="params">value</span> =&gt;</span> <span class="keyword">async</span> put =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> over = <span class="keyword">await</span> sleep(<span class="number">3000</span>);</span><br><span class="line">    put(over + <span class="string">&quot; &quot;</span> + value);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">put(asyncFunc(<span class="string">&quot;world&quot;</span>));</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/05/04/hello-redux-thunk/" data-id="cko9sxo8a0002a2b9aciy6klc" data-title="Hello Redux-thunk" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/05/04/hello-redux-thunk/" data-id="ckoarruzz0002fsb9h8s389gt" data-title="Hello Redux-thunk" class="article-share-link">Share</a>
       
       
       
@@ -153,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/05/04/hello-react-redux/" data-id="cko9sxo870001a2b91dne8asy" data-title="Hello React Redux" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/05/04/hello-react-redux/" data-id="ckoarruzw0001fsb9g2jdgkij" data-title="Hello React Redux" class="article-share-link">Share</a>
       
       
       
@@ -193,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/21/m1-imac/" data-id="cko9sxo8k0007a2b905sf5ota" data-title="Hello iMac" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/21/m1-imac/" data-id="ckoarrv030003fsb9f9ey1gk0" data-title="Hello iMac" class="article-share-link">Share</a>
       
       
       
@@ -233,7 +233,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/19/ys/" data-id="cko9sxo8k0006a2b9exk1gni1" data-title="原神" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/19/ys/" data-id="ckoarrv090007fsb94c9sc63q" data-title="原神" class="article-share-link">Share</a>
       
       
       
@@ -276,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/19/rtx-3060/" data-id="cko9sxo8i0004a2b92qc1g9pj" data-title="RTX 3060性价比高？" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/19/rtx-3060/" data-id="ckoarrv080005fsb97wdi3nbk" data-title="RTX 3060性价比高？" class="article-share-link">Share</a>
       
       
       
@@ -321,7 +321,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/14/hello-blog/" data-id="cko9sxo820000a2b9186o1ofz" data-title="Hello Blog" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/14/hello-blog/" data-id="ckoarruzr0000fsb934au7pyt" data-title="Hello Blog" class="article-share-link">Share</a>
       
       
       
@@ -365,7 +365,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/12/tv-box/" data-id="cko9sxo8j0005a2b9bsdzejuf" data-title="电视盒子便宜没好货？" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/12/tv-box/" data-id="ckoarrv080006fsb9av8o7mmt" data-title="电视盒子便宜没好货？" class="article-share-link">Share</a>
       
       
       
@@ -423,7 +423,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/05/pc-upgrade/" data-id="cko9sxo8g0003a2b94lsz1ab6" data-title="电脑升级记" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/04/05/pc-upgrade/" data-id="ckoarrv070004fsb9artv1ptm" data-title="电脑升级记" class="article-share-link">Share</a>
       
       
       
