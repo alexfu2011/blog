@@ -5,10 +5,10 @@ title: Hello Redux-thunk
 
 ```js
 const updateData = value => dispatch => {
-  dispatch({
-    type: 'UPDATE_DATA',
-    value,
-  });
+    dispatch({
+        type: 'UPDATE_DATA',
+        value,
+    });
 };
 ```
 
