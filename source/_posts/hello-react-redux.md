@@ -73,7 +73,6 @@ const reducer = (state, action) => {
     case "increment":
       return { ...state, num: state.num + 1 };
     default:
-    
       return state;
   }
 };
